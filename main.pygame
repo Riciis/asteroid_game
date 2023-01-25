@@ -7,6 +7,9 @@ pygame.display.set_caption("pew pew ni**a")
 BACKGROUND = pygame.image.load("stars.jpg")
 SPACE_SHIP = pygame.image.load("spaceship.png")
 
+spaceship_x = 100
+spaceship_y = 100
+
 while True :
 
     events = pygame.event.get()
@@ -14,8 +17,21 @@ while True :
 
         if event.type == pygame.QUIT:
             pygame.quit()
+        if event.type == pygame.KEYDOWN:
+
+            if event.key == pygame.K_w or event.key == pygame.K_UP:
+                spaceship_y -= 15
+
+            elif event.key == pygame.K_a or event.key == pygame.K_LEFT:
+                spaceship_x -= 15
+
+            elif event.key == pygame.K_s or event.key == pygame.K_DOWN:
+                spaceship_y += 15
+
+            elif event.key == pygame.K_d or event.key == pygame.K_RIGHT: 
+                spaceship_x += 15
             
     window.blit(BACKGROUND, [0,0])
-    window.blit(SPACE_SHIP, [100,100])
+    window.blit(SPACE_SHIP, [spaceship_x, spaceship_y])
 
     pygame.display.update()
