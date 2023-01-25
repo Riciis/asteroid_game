@@ -10,6 +10,9 @@ SPACE_SHIP = pygame.image.load("spaceship.png")
 spaceship_x = 100
 spaceship_y = 100
 
+spaceship_x_change = 0
+spaceship_y_change = 0
+
 while True :
 
     events = pygame.event.get()
@@ -20,17 +23,21 @@ while True :
         if event.type == pygame.KEYDOWN:
 
             if event.key == pygame.K_w or event.key == pygame.K_UP:
-                spaceship_y -= 15
-
+                spaceship_x_change = 0
+                spaceship_y_change = -0.3
             elif event.key == pygame.K_a or event.key == pygame.K_LEFT:
-                spaceship_x -= 15
-
+                spaceship_x_change = -0.3
+                spaceship_y_change = 0
             elif event.key == pygame.K_s or event.key == pygame.K_DOWN:
-                spaceship_y += 15
-
+                spaceship_x_change = 0
+                spaceship_y_change = 0.3
             elif event.key == pygame.K_d or event.key == pygame.K_RIGHT: 
-                spaceship_x += 15
-            
+                spaceship_x_change = 0.3
+                spaceship_y_change = 0
+    
+    spaceship_y += spaceship_y_change
+    spaceship_x += spaceship_x_change
+
     window.blit(BACKGROUND, [0,0])
     window.blit(SPACE_SHIP, [spaceship_x, spaceship_y])
 
