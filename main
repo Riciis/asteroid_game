@@ -1,0 +1,21 @@
+import pygame
+pygame.init()
+
+window = pygame.display.set_mode([480, 715])
+pygame.display.set_caption("pew pew ni**a")
+
+BACKGROUND = pygame.image.load("stars.jpg")
+SPACE_SHIP = pygame.image.load("spaceship.png")
+
+while True :
+
+    events = pygame.event.get()
+    for event in events:
+
+        if event.type == pygame.QUIT:
+            pygame.quit()
+            
+    window.blit(BACKGROUND, [0,0])
+    window.blit(SPACE_SHIP, [100,100])
+
+    pygame.display.update()
