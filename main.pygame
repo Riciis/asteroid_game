@@ -1,4 +1,5 @@
 import pygame
+import random
 pygame.init()
 
 window = pygame.display.set_mode([480, 715])
@@ -6,12 +7,15 @@ pygame.display.set_caption("pew pew ni**a")
 
 BACKGROUND = pygame.image.load("stars.jpg")
 SPACE_SHIP = pygame.image.load("spaceship.png")
+ASTEROID = pygame.image.load("asteroid.png")
 
 spaceship_x = 100
 spaceship_y = 100
 
 spaceship_x_change = 0
 spaceship_y_change = 0
+
+
 
 while True :
 
@@ -35,11 +39,18 @@ while True :
                 spaceship_x_change = 0.3
                 spaceship_y_change = 0
 
-        if spaceship_x < 0 or spaceship_x > 436:
+
+
+    if spaceship_x < 0 or spaceship_x > 436:
             spaceship_x_change = -spaceship_x_change
 
-        if spaceship_y < 0 or spaceship_y > 651:
+    if spaceship_y < 0 or spaceship_y > 651:
             spaceship_y_change = -spaceship_y_change
+
+
+    for i in range(5):
+        window.blit(ASTEROID, [random.randint(0, 448), random.randint(0, 683)])
+    
 
     
     spaceship_y += spaceship_y_change
