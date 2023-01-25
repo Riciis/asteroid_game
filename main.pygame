@@ -34,6 +34,13 @@ while True :
             elif event.key == pygame.K_d or event.key == pygame.K_RIGHT: 
                 spaceship_x_change = 0.3
                 spaceship_y_change = 0
+
+        if spaceship_x < 0 or spaceship_x > 436:
+            spaceship_x_change = -spaceship_x_change
+
+        if spaceship_y < 0 or spaceship_y > 651:
+            spaceship_y_change = -spaceship_y_change
+
     
     spaceship_y += spaceship_y_change
     spaceship_x += spaceship_x_change
